@@ -16,14 +16,28 @@ public class BasicServer {
 		try {
 		servSock = new ServerSocket(portNum);
 		
-		System.out.println("Attempting to connect to port " + portNum);
+		System.out.println("Listening on port " + portNum + "...");
 
 		clientSock = serverSock.accept();
 
-		out = new PrintWriter(clientSock.getOutputStream(), true);
-		in = new BufferedReader(new InputStreamReader(clientSock.getInputStream()));
+		PrintWriter out = new PrintWriter(clientSock.getOutputStream(), true);
+		BufferedReader in = new BufferedReader(new InputStreamReader(clientSock.getInputStream()));
+		
+		String input;
 
-		} catch (IOException ex) {ex.printStackTrace(); }
+		while ((input = in.readLine()) != null) {
+			System.out.println("The following expression has been received: " + input);
+
+			Parser p = new Parser(input);
+			Evaluator e = new Evaluator(p.Parse())
+
+			String evaluated = e.Evaluate();
+
+
+			out.println(evaluated);
+		}
+
+		} catch (IOException ex) { System.out.println("Couldn't connect to port" + portNum) }
 
 
 
