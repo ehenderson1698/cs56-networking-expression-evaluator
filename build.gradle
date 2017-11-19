@@ -4,13 +4,12 @@ apply plugin: 'application'
 mainClassName = "edu.ucsb.cs56.networking.expression_evaluator.BasicServer"
 sourceSets.main.java.srcDirs = ['src']
 
-repositories {
+defaultTasks 'clean', 'run'
 
-jcenter()
+repositories {
+	     jcenter()
 }
 
-
-
 dependencies {
-testCompile 'junit:junit:4.12'
+	     testCompile 'junit:junit:4.12'
 }
