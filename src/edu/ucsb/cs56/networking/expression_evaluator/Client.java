@@ -6,7 +6,6 @@ import java.net.*;
 public class Client {
 
 	int portNum;
-	Socket clientsock;
 	String expression;
 
 	public Client(int portNum) {
@@ -16,7 +15,6 @@ public class Client {
 
 	public void runClient() {
 		try {
-			portNum = 3000;
 			Socket s1 = new Socket("localhost", portNum);
 			PrintWriter out = new PrintWriter(s1.getOutputStream(), true);
 			System.out.println("Sending expression: " + expression);
@@ -39,7 +37,7 @@ public class Client {
 
 	public  void main (String args[]) {
 		String testExpresh1 = ("3+3");
-		Client c1 = new Client();
+		Client c1 = new Client(3000);
 		c1.set(testExpresh1);
 		c1.runClient();
 	} 
