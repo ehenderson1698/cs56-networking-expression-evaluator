@@ -9,6 +9,10 @@ public class Client {
 	Socket clientsock;
 	String expression;
 
+	public Client(int portNum) {
+		this.portNum = portNum;
+	}
+
 
 	public void runClient() {
 		try {
