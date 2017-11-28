@@ -7,9 +7,36 @@ public class Client {
 
 	int portNum;
 	Socket clientsock;
+	String expression;
+
 
 	public void runClient() {
+		try {
+			portNum = 3000;
+			Socket s1 = new Socket("localhost", portNum);
+			PrintWriter out = new PrintWriter(s1.getOutputStream(), true);
+			System.out.println("Sending expression: " + expression);
+			out.print(expression);
+
+			
+			BufferedReader in = new BufferedReader(new InputStreamReader(s1.getInputStream()));
+			System.out.println(in.readLine());
+		    }
+		catch(Exception ex) {
+			System.out.println("Sorry, nothing was returned");
+		}
+	}
+
+	public void set(String e1) {
+		this.expression = e1;
+	}
 
 
-	public static void main (String args[]) {
 
+	public  void main (String args[]) {
+		String testExpresh1 = ("3+3");
+		Client c1 = new Client();
+		c1.set(testExpresh1);
+		c1.runClient();
+	} 
+}

@@ -1,7 +1,7 @@
 package edu.ucsb.cs56.networking.expression_evaluator;
 
-import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class ParserTest{
     private String s1 = "0+0";

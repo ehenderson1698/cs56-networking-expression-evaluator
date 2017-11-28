@@ -31,13 +31,12 @@ public class BasicServer {
 	    while ((input = in.readLine()) != null) {
 		System.out.println("The following expression has been received: " + input);
 		
-		//	Parser p = new Parser(input);
-		//	Evaluator e = new Evaluator(p.Parse());
+			Parser p = new Parser(input);
+			Evaluator e = new Evaluator();
+			int evaluated = e.evaluate(p);
 		
-		//	String evaluated = e.Evaluate();
 		
-		
-		//	out.println(evaluated);
+			out.println(evaluated);
 	    }
 	    
 	} catch (IOException ex) { System.out.println("Couldn't connect to port" + portNum); }
