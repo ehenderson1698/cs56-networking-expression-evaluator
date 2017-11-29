@@ -7,7 +7,7 @@ public class BasicServer {
     
     int portNum;
     ServerSocket servSock;
-    ArrayList<Socket> clientSock;
+    Socket clientSock;
 
     public BasicServer(int portNum){
 	this.portNum = portNum;
@@ -19,7 +19,7 @@ public class BasicServer {
 	    
 	    System.out.println("Listening on port " + portNum + "...");
 	    
-	    clientSock.add(servSock.accept());
+	    clientSock = servSock.accept();
 	    
 	    System.out.println("Connecton established! Waiting for data transfer");
 	    
